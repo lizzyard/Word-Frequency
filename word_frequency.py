@@ -1,4 +1,6 @@
+
 import sys
+
 
 def create_dictionary(sublist):
     word_count = {}
@@ -18,15 +20,16 @@ def get_sentence():
         sentence = input(">")
         if any(char.isdigit() for char in sentence):
             print('Please type letters only.')
+            continue
         elif any(char.isupper() for char in sentence):
-            sentence = (sentence.lower()).split()
+            sentence = sentence.lower().split()
         else:
             sentence = sentence.split()
         clean_words(sentence)
         break
 def clean_words(list_words):
     for index, item in enumerate(list_words):
-        list_words[index] = item.strip(',?:;"\'')
+        list_words[index] = item.strip('#.,!?:;"\'')
     create_dictionary(list_words)
 
 def greatest_count(dictionary):
